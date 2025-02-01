@@ -1,0 +1,45 @@
+﻿@page
+@model IndexModel
+@{
+    var selected = !string.IsNullOrEmpty(Model.MyPetId);
+    ViewData["Title"] = selected ? Model.MyPet.Name + "'s Home" : "All Pets";
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <h1 class="text-center">@ViewData["Title"]</h1>
+            @if (selected)
+            {
+                <div class="alert alert-info text-center">
+                    <p><strong>Selected Pet:</strong> @Model.MyPet.Name owned by @Model.MyPet.Owner<br/>
+                        <a href=@("/Pet?id=" + Model.MyPetId + "&mine=" + Model.MyPetId) class="btn btn-primary mt-2">Manage my pet</a>
+                    </p>
+                </div>
+            }
+
+            <div class="row">
+                @foreach (var pet in Model.Results)
+                {
+                    <div class="col-md-6 d-flex justify-content-center">
+                        <div class="list-group-item mb-3 text-center">
+                            <h5 class="mb-1">
+                                <a href="@(selected ? "/Pet?id=" + pet!.Id + "&mine=" + Model.MyPetId : "/Pet?id=" + pet!.Id)">
+                                    @pet.Name
+                                </a>
+                            </h5>
+                            <p class="mb-1">owned by @pet.Owner</p>
+                            @if (!selected)
+                            {
+                                <form method="post" class="d-inline">
+                                    <input type="hidden" name="MyPetId" value="@pet.Id"/>
+                                    <button type="submit" class="btn btn-secondary">Select Pet</button>
+                                </form>
+                            }
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

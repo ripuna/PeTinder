@@ -1,0 +1,41 @@
+﻿@page
+@model WebApp.Pages.Search
+
+<div class="container mt-4">
+    <form method="post" class="mb-4">
+        <label for="interest" class="form-label">Select Interest:</label>
+        <select asp-for="SearchedId" class="form-select" required>
+            <option value="" disabled selected>Select an interest</option>
+            @foreach (var interest in Model.Interests)
+            {
+                <option value="@interest.Id">@interest.PetInterest</option>
+            }
+        </select>
+        <input type="submit" value="Search" class="btn btn-primary mt-2">
+    </form>
+
+    @if (Model.Pets.Count == 0)
+    {
+        <div class="alert alert-warning text-center">
+            Search doesn't match any pets
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            @foreach (var pet in Model.Pets)
+            {
+                <div class="col-md-6 d-flex justify-content-center">
+                    <div class="list-group-item mb-3 text-center">
+                        <h5 class="mb-1">
+                            <a href="@("/Pet?id=" + pet!.Id + "&mine=" + Model.MyPetId)">
+                                @pet.Name
+                            </a>
+                        </h5>
+                        <p class="mb-1">owned by @pet.Owner</p>
+                    </div>
+                </div>
+            }
+        </div>
+    }
+</div>

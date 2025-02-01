@@ -1,0 +1,65 @@
+﻿@page
+@model WebApp.Pages.Pet
+
+@{
+    ViewData["Title"] = Model.LPet.Name;
+}
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card">
+                <div class="card-header">
+                    <h1>@Model.LPet.Name</h1>
+                </div>
+                <div class="card-body">
+                    <p><strong>Owner:</strong> @Model.LPet.Owner</p>
+                    <p><strong>Animal:</strong> @Model.LPet.Animal</p>
+                    <p><strong>Breed:</strong> @Model.LPet.Breed</p>
+                    <p><strong>Age:</strong> @Model.LPet.Age</p>
+                    <p><strong>Like count:</strong> @Model.Likes</p>
+                    <p><strong>Interests:</strong>
+                        @foreach (var interest in Model.Interests)
+                        {
+                            <br/>
+                            <span>@interest!.PetInterest</span>
+                        }
+                    </p>
+                    @if (!string.IsNullOrEmpty(Model.MyPetId))
+                    {
+                        if (Model.Id != Model.MyPetId)
+                        {
+                            <form method="post" class="d-inline">
+                                <input type="hidden" name="Com" value="like"/>
+                                <button type="submit" class="btn btn-primary" @(Model.LikeExists ? "disabled" : "")>Like</button>
+                            </form>
+                            <form method="post" class="d-inline">
+                                <input type="hidden" name="Com" value="follow"/>
+                                <button type="submit" class="btn btn-secondary" @(Model.FollowExists ? "disabled" : "")>Follow</button>
+                            </form>
+                        }
+                        else
+                        {
+                            <form method="post" class="d-inline">
+                                <input type="hidden" name="Com" value="add"/>
+                                <button type="submit" class="btn btn-success">Add Interests</button>
+                            </form>
+                            <form method="post" class="d-inline">
+                                <input type="hidden" name="Com" value="followers"/>
+                                <button type="submit" class="btn btn-info">Show Friends</button>
+                            </form>
+                            <form method="post" class="d-inline">
+                                <input type="hidden" name="Com" value="matches"/>
+                                <button type="submit" class="btn btn-info">Show Potential Matches</button>
+                            </form>
+                            <form method="post" class="d-inline">
+                                <input type="hidden" name="Com" value="search"/>
+                                <button type="submit" class="btn btn-warning">Search for friends</button>
+                            </form>
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net9.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="9.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.0" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="9.0.0">
+        <PrivateAssets>all</PrivateAssets>
+        <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      </PackageReference>
+      <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="9.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\DAL\DAL.csproj" />
+      <ProjectReference Include="..\Domain\Domain.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Proov\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Proov\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Proov\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Proov\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Proov\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Interests\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Interests\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Interests\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Interests\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Interests\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Follows\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Follows\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Follows\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Follows\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Follows\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Likes\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Likes\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Likes\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Likes\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Likes\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\PetInterests\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\PetInterests\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\PetInterests\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\PetInterests\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\PetInterests\Index.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Pets\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Pets\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Pets\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Pets\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Control\Pets\Index.cshtml" />
+    </ItemGroup>
+
+</Project>

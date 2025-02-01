@@ -1,0 +1,40 @@
+﻿@page
+@model WebApp.Pages.AddInterest
+
+@{
+    ViewData["Title"] = "Add Interest";
+}
+
+<div class="container mt-5">
+    <h1 class="text-center">@ViewData["Title"]</h1>
+    <hr />
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <form method="post" class="needs-validation" novalidate>
+                <div class="form-group mb-3">
+                    <label for="interest" class="form-label">Select Interest:</label>
+                    <select asp-for="InterestId" class="form-select" required>
+                        <option value="" disabled selected>Select an interest</option>
+                        @foreach (var interest in Model.Interests)
+                        {
+                            <option value="@interest.Id">@interest.PetInterest</option>
+                        }
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select an interest.
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" class="btn btn-primary">Add</button>
+                </div>
+            </form>
+            <div class="text-center mt-3">
+                <a asp-page="Index" class="btn btn-secondary">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
